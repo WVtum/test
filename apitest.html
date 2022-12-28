@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="widt-device-width, initial-scale=1">
+    <title></title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        const options = {
+            method: 'GET',
+            headers: {
+                'X-RapidAPI-Key': 'f5329210d1msh0da6314a1debe23p123271jsnbafb671446a2',
+                'X-RapidAPI-Host': 'fmpcloud.p.rapidapi.com'
+            }
+        };
+
+        fetch('https://fmpcloud.p.rapidapi.com/income-statement/AAPL?apikey=bbc6c7abb96d9e77dd30eaa0088f0bb8&period=annual', options)
+            .then(response => response.json())
+            .then(response => console.log(response))
+            .catch(err => console.error(err));
+    </script>
+</body>
+
+</html>
