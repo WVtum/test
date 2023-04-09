@@ -14,16 +14,15 @@ async function trigger(timeIndex, APISource = 'cash-flow-statement', period = 'a
     return;
   }
   
-  // const url1 = 'https://financialmodelingprep.com/api/v3/cash-flow-statement/' + ticker + '?limit=120&apikey=bbc6c7abb96d9e77dd30eaa0088f0bb8'
+  
   const urlCashFlow =  `https://eorqdv9pugwmyey.m.pipedream.net/?Ticker=${ticker}`
   const urlIncomeStatement = `https://eos7w7u9s47emvp.m.pipedream.net/?Ticker=${ticker}`
   const urlBalanceSheet =  `https://eomr6a8qmm0bgna.m.pipedream.net/?Ticker=${ticker}`
   const urlStockPrice = `https://eol73aj8sl2k982.m.pipedream.net/?Ticker=${ticker}`
-  const urlDividends = 'https://financialmodelingprep.com/api/v3/historical-price-full/stock_dividend/' + ticker + '?apikey=bbc6c7abb96d9e77dd30eaa0088f0bb8'
-  const urlDividendCalendar = 'https://financialmodelingprep.com/api/v3/stock_dividend_calendar?from=2023-02-12&to=2023-05-10&apikey=bbc6c7abb96d9e77dd30eaa0088f0bb8'
+  const urlDividends = `https://eo2gspvt1hdmirm.m.pipedream.net/?Ticker=${ticker}`
+  const urlDividendCalendar = 'https://eoh7352ondkby8s.m.pipedream.net/'
   const urlCompanyMetrics = `https://eofq9y2ys1nk1sa.m.pipedream.net/?Ticker=${ticker}`
-  
-  const urlFinancialGrowthMetrics = 'https://financialmodelingprep.com/api/v3/financial-growth/' + ticker + '?limit=20&apikey=bbc6c7abb96d9e77dd30eaa0088f0bb8'
+  const urlFinancialGrowthMetrics = `https://eo3ng8atuqwl7it.m.pipedream.net/?Ticker=${ticker}`
 
   const responses = await Promise.all([fetch(urlCashFlow), fetch(urlIncomeStatement), fetch(urlBalanceSheet), fetch(urlStockPrice), fetch(urlDividends), fetch(urlDividendCalendar), fetch(urlCompanyMetrics), fetch(urlFinancialGrowthMetrics)])
 
