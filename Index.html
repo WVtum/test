@@ -3,115 +3,214 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Getting Started with Chart JS with www.chartjs3.com</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        font-family: sans-serif;
-      }
-      .chartMenu {
-        width: 100vw;
-        height: 40px;
-        background: #1A1A1A;
-        color: rgba(54, 162, 235, 1);
-      }
-      .chartMenu p {
-        padding: 10px;
-        font-size: 20px;
-      }
-      .chartCard {
-        width: 100vw;
-        height: calc(100vh - 40px);
-        background: rgba(54, 162, 235, 0.2);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .chartBox {
-        width: 700px;
-        padding: 20px;
-        border-radius: 20px;
-        border: solid 3px rgba(54, 162, 235, 1);
-        background: white;
-      }
-    </style>
+    <title>Investor Bird - Charts</title>
+    <link rel="stylesheet" href="/resources/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   </head>
-  <body>
-    <div class="chartMenu">
-      <p>WWW.CHARTJS3.COM (Chart JS 4.1.1)</p>
-    </div>
-    <div class="chartCard">
-      <div class="chartBox">
-        <canvas id="myChart"></canvas>
+  <body onload="trigger('5'); startLoadDetails()" >
+    <!-- startLoadDetails()" -->
+    <!-- <div class="chartMenu">
+      <p>Investor Bird - Charts</p>
+    </div> -->
+    <div>  
+      <div class = "wrapper">
+        <!-- logo -->
+        <div class = "logo">
+            <!-- <div class = "container"> -->
+                <p>Investor<span>Bird.</span></p>
+            <!-- </div> -->
+        </div>
+        <!-- end of logo -->
+        <!-- search container -->
+        <!-- <div class = "search-container"> -->
+            <div class = "search-element">
+                <h3>Search Ticker:</h3>
+                <input type = "text" class = "form-control" placeholder="Search Ticker ..." id = "movie-search-box"  onkeyup="findMovies();" onclick = "findMovies();"> 
+                <!--  -->
+                <div class = "search-list" id = "search-list">
+                </div>
+            </div>
+        <!-- </div> -->
+        <!-- end of search container -->
       </div>
     </div>
+
+    <div class="container-wide" >
+      <div class="left-container">
+      <div class="container-normal top" id="container-Table" >
+        <table class="table table-sm">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">Valuation</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">PE (TTM)</th>
+              <td id="peRatio">0</td>
+            </tr>
+            <tr>
+              <th scope="row">Price/EV (TTM)</th>
+              <td id="P-EV">0X</td>
+            </tr>
+            <tr>
+              <th scope="row">Free Cash Flow Yield%</th>
+              <td colspan="2" id="freeCashFlowYield">0X</td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="table table-sm">
+          <thead>
+            <tr>
+              <th scope="col">Company Health Check</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Market Cap</th>
+              <td id="marketCap">0</td>
+            </tr>
+            <tr>
+              <th scope="row">Enterprise Value</th>
+              <td id="enterpriseValue">0</td>
+            </tr>
+            <tr>
+              <th scope="row">Net Debt/ Ebitda</th>
+              <td id="netDebtToEBITDA">0X</td>
+            </tr>
+            <tr>
+              <th scope="row">roic (TTM)</th>
+              <td colspan="2" id="roic">0%</td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="table table-sm">
+          <thead>
+            <tr>
+              <th scope="col">Dividend</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Dividend Yield</th>
+              <td id="dividendYield">0%</td>
+            </tr>
+            <tr>
+              <th scope="row">Payout Ratio</th>
+              <td id="payoutRatio">0%</td>
+            </tr>
+            <tr>
+              <th scope="row">Dividend Growth 1Y</th>
+              <td colspan="2" id="dividendGrowth1Y">0%</td>
+            </tr>
+            <tr>
+              <th scope="row">Dividend Growth 3Y</th>
+              <td colspan="2" id="dividendGrowth3Y">0%</td>
+            </tr>
+            <tr>
+              <th scope="row">Dividend Growth 5Y</th>
+              <td colspan="2" id="dividendGrowth5Y">0%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="chartCard-Wide">
+        <h2>Stock Price</h2>
+        <div class="chartBox">
+          <button class ="btn" value ="0" onclick="toggleChart(this)"><i class="fa-solid fa-expand" ></i></button>
+          <div class="holder">
+            <canvas id="StockPriceChart"></canvas>
+            <!-- <input onchange="trigger()" type="date" id="startDate" value="2021-08-31"> -->
+            <!-- <input onchange="trigger()" type="date" id="endDate" value="2023-01-31"> -->
+            <button onclick="trigger(this.value)" id="max" value="1">MAX</button>
+            <button onclick="trigger(this.value)" id="5y" value="2">5Y</button>
+            <button onclick="trigger(this.value)" id="3y" value="3">3Y</button>
+            <button onclick="trigger(this.value)" id="1y" value="4">1Y</button>
+            <button onclick="trigger(this.value)" id="ytd" value="5">YTD</button>
+          </div>  
+        </div>
+      </div>
+      </div>
+      <!-- result container -->
+      <div class = "test-container">
+        <div class = "result-container">
+            <div class = "result-grid" id = "result-grid">
+                <!-- movie information here -->
+                <div class = "movie-poster">
+                </div>
+                <div class = "movie-info">
+                    <h3 class = "movie-title">Apple</h3>
+                    <h3 class = "movie-title" id = "inputTicker">AAPL</h3>                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end of result container -->
+    </div>
+ 
+    <div class="container-normal kpi" >
+      <div class="chartCard">
+        <h2>Revenue</h2>
+        <div class="chartBox">
+          <div class="holder">
+            <canvas id="myChart"></canvas>
+          </div>
+          <button class ="btn" value ="1" onclick="toggleChart(this)"><i class="fa-solid fa-expand" ></i></button>  
+        </div>
+      </div>
+      <div class="chartCard">
+        <h2>EBITDA</h2>
+        <div class="chartBox">
+          <button class ="btn" value ="2" onclick="toggleChart(this)"><i class="fa-solid fa-expand" ></i></button>
+          <div class="holder">
+            <canvas id="myChart1"></canvas>
+          </div>  
+        </div>
+      </div>
+      <div class="chartCard">
+        <h2>Net Income</h2>
+        <div class="chartBox">
+          <button class ="btn" value ="3" onclick="toggleChart(this)"><i class="fa-solid fa-expand" ></i></button>
+          <canvas id="myChart2"></canvas>
+        </div>
+      </div>
+      <div class="chartCard">
+        <h2>Free Cash Flow</h2>
+        <div class="chartBox">
+          <button class ="btn" value ="4" onclick="toggleChart(this)"><i class="fa-solid fa-expand" ></i></button>
+          <canvas id="myChart3"></canvas>
+        </div>
+      </div>
+      <div class="chartCard">
+        <h2>Dividends</h2>
+        <div class="chartBox">
+          <button class ="btn" value ="5" onclick="toggleChart(this)"><i class="fa-solid fa-expand" ></i></button>
+          <canvas id="myChart4"></canvas>
+        </div>
+      </div>
+      <div class="chartCard">
+        <h2>Shares outstanding</h2>
+        <div class="chartBox">
+          <button class ="btn" value ="6" onclick="toggleChart(this)"><i class="fa-solid fa-expand" ></i></button>
+          <canvas id="myChart5"></canvas>
+        </div>
+      </div>
+      <div class="chartCard">
+        <h2>Cash & Debt</h2>
+        <div class="chartBox">
+          <button class ="btn" value ="7" onclick="toggleChart(this)"><i class="fa-solid fa-expand" ></i></button>
+          <canvas id="myChart6"></canvas>
+        </div>
+      </div>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-
-    const sharesOutstanding = [
-      { year: '2018', shares: { total: 1000, issued: 150, repurchased: 200 } },
-      { year: '2019', shares: { total: 950, issued: 100, repurchased: 150 } },
-      { year: '2020', shares: { total: 900, issued: 100, repurchased: 200 } },
-      { year: '2021', shares: { total: 800, issued: 100, repurchased: 200 } },
-      { year: '2022', shares: { total: 700, issued: 100, repurchased: 200 } }
-    ];
-
-
-
-    // setup 
-    const data = {
-      //labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-      datasets: [{
-        label: 'total shares',
-        data: sharesOutstanding,
-        backgroundColor: 'rgba(255, 26, 104, 0.2)',
-        borderColor: 'rgba(255, 26, 104, 1)',
-        parsing: {
-          yAxisKey: 'shares.total'
-        }
-      },{
-        label: 'Issued shares',
-        data: sharesOutstanding,
-        backgroundColor: 'rgba(54, 162, 235, 0.2)',
-        borderColor: 'rgba(54, 162, 235, 1)',
-        parsing: {
-          yAxisKey: 'shares.issued'
-        }
-      },{
-        label: 'repurchased shares',
-        data: sharesOutstanding,
-        backgroundColor: 'rgba(75, 192, 192, 0.2)',
-        borderColor: 'rgba(75, 192, 192, 1)',
-        parsing: {
-          yAxisKey: 'shares.repurchased'
-        }
-      }]
-    };
-
-    // config 
-    const config = {
-      type: 'bar',
-      data,
-      options: {
-        tension: 0.4,
-        parsing: {
-          xAxisKey: 'year'
-        },
-        scales: {
-          y: {
-            beginAtZero: true
-          }
-        }
-      }
-    };
-
-    // render init block commonStockRepurchased commonStockIssued Weighted Average Shares Outstanding (Diluted)	
-    const myChart = new Chart(
-      document.getElementById('myChart'),
-      config
-    );
-    </script>
-
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+    <!-- <script src="/resources/js/charts.js"></script> -->
+    <script src="/resources/js/testDirectAPI.js"></script>
+    <script src = "/resources/js/search.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  </div>
   </body>
 </html>
