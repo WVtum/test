@@ -32,8 +32,8 @@ async function trigger(timeIndex, APISource = 'cash-flow-statement', period = 'a
   const dataStockPrice =  await responses[3].json()
   const dataDividends = await responses[4].json()
   // const dataDividendCalendar = await responses[5].json()
-  const dataCompanyMetrics = await responses[6].json()
-  const dataGrowthMetrics = await responses[7].json()
+  const dataCompanyMetrics = await responses[5].json()
+  const dataGrowthMetrics = await responses[6].json()
 
   let marketCap = dataCompanyMetrics.map(
     function(index){

@@ -15,7 +15,7 @@ async function loadMovies(searchTerm){
     const data2 = await res2.json();
     // console.log(data);
     // console.log(data2);
-    console.log(res2.response)
+    console.log(data2)
     // if(data2.Response == "True") 
     displayMovieList(data2);
 }
@@ -60,16 +60,12 @@ function loadMovieDetails(){
     const searchListMovies = searchList.querySelectorAll('.search-list-item');
     searchListMovies.forEach(movie => {
         movie.addEventListener('click', async () => {
-            // console.log(movie.dataset.id);
             searchList.classList.add('hide-search-list');
             movieSearchBox.value = "";
-            // const result = await fetch(`http://www.omdbapi.com/?i=${movie.dataset.id}&apikey=fc1fef96`);
-            // console.log(movie.dataset.id)
-            let urldetails = `https://financialmodelingprep.com/api/v3/profile/${movie.dataset.id}?apikey=bbc6c7abb96d9e77dd30eaa0088f0bb8`
-            // console.log(urldetails)
+            let urldetails = `https://eobartox1n8kzk5.m.pipedream.net/?Ticker=${movie.dataset.id}`
             const result = await fetch(`${urldetails}`) ; 
             const movieDetails = await result.json();
-            // console.log(movieDetails);
+            console.log(movieDetails);
             displayMovieDetails(movieDetails);
             trigger();
         });
@@ -83,7 +79,7 @@ function displayMovieDetails(details){
     `<div class= "container-results-side">
         <div class = "container-results-side-header">
             <div class = "movie-poster">
-                <img src = "${(details[0].image != "N/A") ? details[0].image : "image_not_found.png"}" alt = "movie poster">
+                <img src = "${details[0].image}" alt = "movie poster">
             </div>
             <div class = "stockname">
                 <h3 class = "movie-title">${details[0].companyName}</h3>
@@ -112,17 +108,12 @@ window.addEventListener('click', (event) => {
     }
 });
 
-
-
-
-
-
-
 async function startLoadDetails(){
-    let urldetails = `https://financialmodelingprep.com/api/v3/profile/AAPL?apikey=bbc6c7abb96d9e77dd30eaa0088f0bb8`
+    let urldetails = `https://eobartox1n8kzk5.m.pipedream.net/?Ticker=AAPL` 
     console.log(urldetails)
     const result = await fetch(`${urldetails}`) ; 
     const stockDetails = await result.json();
+    console.log(stockDetails)
     startStockDetails(stockDetails);
 }
 
