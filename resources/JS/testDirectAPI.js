@@ -20,18 +20,18 @@ async function trigger(timeIndex, APISource = 'cash-flow-statement', period = 'a
   const urlBalanceSheet =  `https://eomr6a8qmm0bgna.m.pipedream.net/?Ticker=${ticker}`
   const urlStockPrice = `https://eol73aj8sl2k982.m.pipedream.net/?Ticker=${ticker}`
   const urlDividends = `https://eo2gspvt1hdmirm.m.pipedream.net/?Ticker=${ticker}`
-  const urlDividendCalendar = 'https://eoh7352ondkby8s.m.pipedream.net/'
+  // const urlDividendCalendar = 'https://eoh7352ondkby8s.m.pipedream.net/'
   const urlCompanyMetrics = `https://eofq9y2ys1nk1sa.m.pipedream.net/?Ticker=${ticker}`
   const urlFinancialGrowthMetrics = `https://eo3ng8atuqwl7it.m.pipedream.net/?Ticker=${ticker}`
 
-  const responses = await Promise.all([fetch(urlCashFlow), fetch(urlIncomeStatement), fetch(urlBalanceSheet), fetch(urlStockPrice), fetch(urlDividends), fetch(urlDividendCalendar), fetch(urlCompanyMetrics), fetch(urlFinancialGrowthMetrics)])
+  const responses = await Promise.all([fetch(urlCashFlow), fetch(urlIncomeStatement), fetch(urlBalanceSheet), fetch(urlStockPrice), fetch(urlDividends), fetch(urlCompanyMetrics), fetch(urlFinancialGrowthMetrics)])
 
   const dataCashFlow = await responses[0].json()
   const dataIncomeStatement = await responses[1].json()
   const dataBalance = await responses[2].json()
   const dataStockPrice =  await responses[3].json()
   const dataDividends = await responses[4].json()
-  const dataDividendCalendar = await responses[5].json()
+  // const dataDividendCalendar = await responses[5].json()
   const dataCompanyMetrics = await responses[6].json()
   const dataGrowthMetrics = await responses[7].json()
 
