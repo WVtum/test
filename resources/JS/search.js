@@ -86,19 +86,19 @@ function displayMovieDetails(details){
         </div>
     </div>
     `;
-    resultGrid2.innerHTML = 
-    `<div class = "movie-info">
-        <ul class = "movie-misc-info">
-            <li class = "year">ISIN: ${details[0].isin}</li>
-            <li class = "rated">Exchange: ${details[0].exchangeShortName}</li>
-            <li class = "released">Industry: ${details[0].industry}</li>
-        </ul>
-        <p class = "genre"><b>Current Price:</b> ${details[0].price}</p>
-        <p class = "writer"><b>Market Cap:</b> ${details[0].mktCap}</p>
-        <p class = "actors"><b>Country: </b>${details[0].country}</p>
-        <p class = "plot"><b>Description:</b> ${details[0].description}</p>
-    </div>
-    `;
+    // resultGrid2.innerHTML = 
+    // `<div class = "movie-info">
+    //     <ul class = "movie-misc-info">
+    //         <li class = "year">ISIN: ${details[0].isin}</li>
+    //         <li class = "rated">Exchange: ${details[0].exchangeShortName}</li>
+    //         <li class = "released">Industry: ${details[0].industry}</li>
+    //     </ul>
+    //     <p class = "genre"><b>Current Price:</b> ${details[0].price}</p>
+    //     <p class = "writer"><b>Market Cap:</b> ${details[0].mktCap}</p>
+    //     <p class = "actors"><b>Country: </b>${details[0].country}</p>
+    //     <p class = "plot"><b>Description:</b> ${details[0].description}</p>
+    // </div>
+    // `;
 }
 
 
