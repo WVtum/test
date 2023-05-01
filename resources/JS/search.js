@@ -4,6 +4,7 @@
 const movieSearchBox = document.getElementById('movie-search-box');
 const searchList = document.getElementById('search-list');
 const resultGrid = document.getElementById('result-grid');
+const resultGrid2 = document.getElementById('result-grid2');
 
 // load movies from API
 async function loadMovies(searchTerm){
@@ -86,17 +87,19 @@ function displayMovieDetails(details){
                 <h3 class = "movie-title" id = "inputTicker">${details[0].symbol}</h3>
             </div>  
         </div>
-        <div class = "movie-info">
-            <ul class = "movie-misc-info">
-                <li class = "year">ISIN: ${details[0].isin}</li>
-                <li class = "rated">Exchange: ${details[0].exchangeShortName}</li>
-                <li class = "released">Industry: ${details[0].industry}</li>
-            </ul>
-            <p class = "genre"><b>Current Price:</b> ${details[0].price}</p>
-            <p class = "writer"><b>Market Cap:</b> ${details[0].mktCap}</p>
-            <p class = "actors"><b>Country: </b>${details[0].country}</p>
-            <p class = "plot"><b>Description:</b> ${details[0].description}</p>
-        </div>
+    </div>
+    `;
+    resultGrid2.innerHTML = 
+    `<div class = "movie-info">
+        <ul class = "movie-misc-info">
+            <li class = "year">ISIN: ${details[0].isin}</li>
+            <li class = "rated">Exchange: ${details[0].exchangeShortName}</li>
+            <li class = "released">Industry: ${details[0].industry}</li>
+        </ul>
+        <p class = "genre"><b>Current Price:</b> ${details[0].price}</p>
+        <p class = "writer"><b>Market Cap:</b> ${details[0].mktCap}</p>
+        <p class = "actors"><b>Country: </b>${details[0].country}</p>
+        <p class = "plot"><b>Description:</b> ${details[0].description}</p>
     </div>
     `;
 }
