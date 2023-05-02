@@ -124,28 +124,49 @@ async function startLoadDetails(){
 }
 
 function startStockDetails(details){
-    resultGrid.innerHTML = 
+    resultGridLogo.innerHTML = 
     `<div class= "container-results-side">
         <div class = "container-results-side-header">
             <div class = "movie-poster">
-                <img src = "${(details[0].image != "N/A") ? details[0].image : "image_not_found.png"}" alt = "movie poster">
+                <img src = "${details[0].image}" alt = "movie poster">
             </div>
+        </div>
+    </div>
+    `;
+    resultGridTicker.innerHTML = 
+    `<div class= "container-results-side">
+        <div class = "container-results-side-header">
             <div class = "stockname">
                 <h3 class = "movie-title">${details[0].companyName}</h3>
                 <h3 class = "movie-title" id = "inputTicker">${details[0].symbol}</h3>
             </div>  
         </div>
-        <div class = "movie-info">
-            <ul class = "movie-misc-info">
-                <li class = "year">ISIN: ${details[0].isin}</li>
-                <li class = "rated">Exchange: ${details[0].exchangeShortName}</li>
-                <li class = "released">Industry: ${details[0].industry}</li>
-            </ul>
-            <p class = "genre"><b>Current Price:</b> ${details[0].price}</p>
-            <p class = "writer"><b>Market Cap:</b> ${details[0].mktCap}</p>
-            <p class = "actors"><b>Country: </b>${details[0].country}</p>
-            <p class = "plot"><b>Description:</b> ${details[0].description}</p>
-        </div>
     </div>
     `;
-}
+}  
+    
+    
+    // resultGrid.innerHTML = 
+    // `<div class= "container-results-side">
+    //     <div class = "container-results-side-header">
+    //         <div class = "movie-poster">
+    //             <img src = "${(details[0].image != "N/A") ? details[0].image : "image_not_found.png"}" alt = "movie poster">
+    //         </div>
+    //         <div class = "stockname">
+    //             <h3 class = "movie-title">${details[0].companyName}</h3>
+    //             <h3 class = "movie-title" id = "inputTicker">${details[0].symbol}</h3>
+    //         </div>  
+    //     </div>
+    //     <div class = "movie-info">
+    //         <ul class = "movie-misc-info">
+    //             <li class = "year">ISIN: ${details[0].isin}</li>
+    //             <li class = "rated">Exchange: ${details[0].exchangeShortName}</li>
+    //             <li class = "released">Industry: ${details[0].industry}</li>
+    //         </ul>
+    //         <p class = "genre"><b>Current Price:</b> ${details[0].price}</p>
+    //         <p class = "writer"><b>Market Cap:</b> ${details[0].mktCap}</p>
+    //         <p class = "actors"><b>Country: </b>${details[0].country}</p>
+    //         <p class = "plot"><b>Description:</b> ${details[0].description}</p>
+    //     </div>
+    // </div>
+    // `;
