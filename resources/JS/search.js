@@ -86,8 +86,8 @@ function displayMovieDetails(details){
     `<div class= "container-results-side">
         <div class = "container-results-side-header">
             <div class = "stockname">
-                <h3 class = "movie-title">${details[0].companyName}</h3>
-                <h3 class = "movie-title" id = "inputTicker">${details[0].symbol}</h3>
+                <h5 class = "movie-title">${details[0].companyName}</h5>
+                <h5 class = "movie-title" id = "inputTicker">${details[0].symbol}</h5>
             </div>  
         </div>
     </div>
@@ -137,8 +137,8 @@ function startStockDetails(details){
     `<div class= "container-results-side">
         <div class = "container-results-side-header">
             <div class = "stockname">
-                <h3 class = "movie-title">${details[0].companyName}</h3>
-                <h3 class = "movie-title" id = "inputTicker">${details[0].symbol}</h3>
+                <h5 class = "movie-title">${details[0].companyName}</h5>
+                <h5 class = "movie-title" id = "inputTicker">${details[0].symbol}</h5>
             </div>  
         </div>
     </div>
