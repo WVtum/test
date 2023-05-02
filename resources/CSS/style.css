@@ -273,7 +273,7 @@ img{
     cursor: pointer;
 }
 .search-list .search-list-item:Hover{
-    background-color: #000000;
+    background-color: #aa7979;
 }
 .search-list-item{
     display: -webkit-box;
