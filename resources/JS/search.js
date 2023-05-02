@@ -1,7 +1,7 @@
 const movieSearchBox = document.getElementById('movie-search-box');
 const searchList = document.getElementById('search-list');
-const resultGrid = document.getElementById('result-grid');
-const resultGrid2 = document.getElementById('result-grid2');
+const resultGridLogo = document.getElementById('result-grid-logo');
+const resultGridTicker = document.getElementById('result-grid-ticker');
 
 // load movies from API
 async function loadMovies(searchTerm){
@@ -73,12 +73,18 @@ function loadMovieDetails(){
 
 
 function displayMovieDetails(details){
-    resultGrid.innerHTML = 
+    resultGridLogo.innerHTML = 
     `<div class= "container-results-side">
         <div class = "container-results-side-header">
             <div class = "movie-poster">
                 <img src = "${details[0].image}" alt = "movie poster">
             </div>
+        </div>
+    </div>
+    `;
+    resultGridTicker.innerHTML = 
+    `<div class= "container-results-side">
+        <div class = "container-results-side-header">
             <div class = "stockname">
                 <h3 class = "movie-title">${details[0].companyName}</h3>
                 <h3 class = "movie-title" id = "inputTicker">${details[0].symbol}</h3>
