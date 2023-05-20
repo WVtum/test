@@ -691,14 +691,39 @@ const config4 = {
   type: 'bar',
   data: dataDividends,
   options: {
-  tension: 0.4,
-  parsing: {
+    plugins: {
+      tooltip: {
+        callbacks: {
+          label: (context) => {
+            return new Intl.NumberFormat('en-US', {
+              style: 'currency',
+              currency: 'USD',
+              maximumSignificantDigits: 6,
+              currencyDisplay: 'narrowSymbol'
+            }).format(context.parsed.y); 
+          }
+        }
+    }
+  },
+    locale: 'en-US',
+    tension: 0.4,
+    parsing: {
       xAxisKey: 'calendarYear',
       yAxisKey: 'keyfigures.dividend'
   },
   scales: {
       y: {
-      beginAtZero: true
+        ticks: {
+          callback: (value, index, values) => {
+            return new Intl.NumberFormat('en-US', {
+              style: 'currency',
+              currency: 'USD',
+              maximumSignificantDigits: 6,
+              currencyDisplay: 'narrowSymbol'
+            }).format(value); 
+          }
+        },
+        beginAtZero: true
       }
   }
   }
