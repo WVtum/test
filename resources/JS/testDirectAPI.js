@@ -599,6 +599,16 @@ const config2 = {
   },
   scales: {
       y: {
+        ticks: {
+          callback: (value, index, values) => {
+            return new Intl.NumberFormat('en-US', {
+              style: 'currency',
+              currency: 'USD',
+              maximumSignificantDigits: 6,
+              currencyDisplay: 'narrowSymbol'
+            }).format(value/1000_000) + "M"; 
+          }
+        },
         beginAtZero: true,
         type: 'linear',
         position: 'left',
