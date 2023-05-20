@@ -606,11 +606,11 @@ const config2 = {
         }
       }
     },
-    locale: 'en-US',
-    tension: 0.4,
-    parsing: {
-      xAxisKey: 'calendarYear',
-      yAxisKey: 'keyfigures.netIncome'
+      locale: 'en-US',
+      tension: 0.4,
+      parsing: {
+        xAxisKey: 'calendarYear',
+        yAxisKey: 'keyfigures.netIncome'
   },
   scales: {
       y: {
@@ -649,14 +649,39 @@ const config3 = {
   type: 'bar',
   data: dataFreeCashFlow,
   options: {
-  tension: 0.4,
-  parsing: {
+    plugins: {
+      tooltip: {
+        callbacks: {
+          label: (context) => {
+            return new Intl.NumberFormat('en-US', {
+              style: 'currency',
+              currency: 'USD',
+              maximumSignificantDigits: 6,
+              currencyDisplay: 'narrowSymbol'
+            }).format(context.parsed.y/1000_000) + "M"; 
+          }
+        }
+    }
+  },
+    locale: 'en-US',
+    tension: 0.4,
+    parsing: {
       xAxisKey: 'calendarYear',
       yAxisKey: 'keyfigures.freeCashFlow'
   },
   scales: {
       y: {
-      beginAtZero: true
+        ticks: {
+          callback: (value, index, values) => {
+            return new Intl.NumberFormat('en-US', {
+              style: 'currency',
+              currency: 'USD',
+              maximumSignificantDigits: 6,
+              currencyDisplay: 'narrowSymbol'
+            }).format(value/1000_000) + "M"; 
+          }
+        },
+        beginAtZero: true
       }
   }
   }
