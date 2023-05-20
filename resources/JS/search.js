@@ -114,6 +114,15 @@ window.addEventListener('click', (event) => {
     }
 });
 
+
+document.addEventListener("DOMContentLoaded", (event) => {
+    console.log.textContent += `DOMContentLoaded\n`;
+    console.log("Wout")
+    trigger('5');
+    startLoadDetails();
+  });
+
+
 async function startLoadDetails(){
     console.log("load start")
     let urldetails = `https://eobartox1n8kzk5.m.pipedream.net/?Ticker=AAPL` 
