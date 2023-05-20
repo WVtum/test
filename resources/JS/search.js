@@ -115,6 +115,7 @@ window.addEventListener('click', (event) => {
 });
 
 async function startLoadDetails(){
+    console.log("load start")
     let urldetails = `https://eobartox1n8kzk5.m.pipedream.net/?Ticker=AAPL` 
     console.log(urldetails)
     const result = await fetch(`${urldetails}`) ; 
