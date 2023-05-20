@@ -354,6 +354,8 @@ const dataRevenue = {
       data: dataframe,
       backgroundColor: 'rgba(0, 184, 148, 0.72)',
       borderColor: 'rgba(0, 0, 0, 1)',
+      borderWidth: 1,
+      pointRadius: 0,
       }
   ]
   };
@@ -364,7 +366,9 @@ const dataEbitda = {
       label: 'ebitda',
       data: dataframe,
       backgroundColor: 'rgba(81, 133, 122, 0.52)',
-      borderColor: 'rgba(0, 0, 0, 0.5)',
+      borderColor: 'rgba(0, 0, 0, 1)',
+      borderWidth: 1,
+      pointRadius: 0,
       }
   ]
   };
@@ -375,7 +379,9 @@ const dataNetIncome = {
       label: 'Net Income',
       data: dataframe,
       backgroundColor: 'rgba(49, 235, 93, 0.92)',
-      borderColor: 'rgba(0, 0, 0, 0.5)',
+      borderColor: 'rgba(0, 0, 0, 1)',
+      borderWidth: 1,
+      pointRadius: 0,
       order: 2, 
       yAxisID: 'y'
       }, 
@@ -383,7 +389,9 @@ const dataNetIncome = {
       label: 'netIncomeRatio',
       data: dataframe,
       backgroundColor: 'rgba(49, 235, 93, 0.92)',
-      borderColor: 'rgba(0, 0, 0, 0.5)',
+      borderColor: 'rgba(0, 0, 0, 1)',
+      borderWidth: 1,
+      pointRadius: 0,
       type: 'line',
       order: 1,
       yAxisID: 'Percentage'
@@ -396,7 +404,10 @@ const dataFreeCashFlow = {
       label: 'Free Cashflow',
       data: dataframe,
       backgroundColor: 'rgba(176, 20, 184, 0.72)',
-      borderColor: 'rgba(75, 192, 192, 1)',
+      // borderColor: 'rgba(75, 192, 192, 1)',
+      borderColor: 'rgba(0, 0, 0, 1)',
+      borderWidth: 1,
+      pointRadius: 0,
       }
   ]
   };  
@@ -407,7 +418,10 @@ const dataSharesOut = {
       label: 'weightedAverageShsOutDil',
       data: dataframe,
       backgroundColor: 'rgba(54, 162, 235, 0.2)',
-      borderColor: 'rgba(54, 162, 235, 1)',
+      // borderColor: 'rgba(54, 162, 235, 1)',
+      borderColor: 'rgba(0, 0, 0, 1)',
+      borderWidth: 1,
+      pointRadius: 0,
       }
   ]
   };
@@ -418,7 +432,10 @@ const dataDividends = {
       label: 'Dividends',
       data: dataframe,
       backgroundColor: 'rgba(54, 162, 235, 0.2)',
-      borderColor: 'rgba(54, 162, 235, 1)',
+      // borderColor: 'rgba(54, 162, 235, 1)',
+      borderColor: 'rgba(0, 0, 0, 1)',
+      borderWidth: 1,
+      pointRadius: 0,
       }
   ]
   };
