@@ -44,7 +44,7 @@ function displayMovieList(movies){
 
         movieListItem.innerHTML = `
         <div class = "search-item-info">
-            <h3>${movies[idx].name}</h3>
+            <h5>${movies[idx].name}</h5>
             <p>${movies[idx].symbol}</p>
         </div>
         `;
