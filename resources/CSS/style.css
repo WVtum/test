@@ -351,8 +351,8 @@ img{
 
 /* movie info stylings */
 .movie-title{
-    font-size: 2rem;
-    color: var(--dark-color);
+    /* font-size: 2rem; */
+    /* color: var(--dark-color); */
 }
 .movie-misc-info{
     list-style-type: none;
